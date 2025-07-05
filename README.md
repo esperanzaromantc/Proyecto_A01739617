@@ -1,16 +1,15 @@
----
-title: Situacion problema avance 1
----
+```mermaid
+classDiagram
+    class Personaje {
+        -vida : int
+        -salud : int
+        -ataque : int
+        -nivel : int
+        +porcentajeSalud() int
+        +imprimeBarra() void
+        +recibeAtaque(ptosAtaque : int) void
+        +atacar(objetivo : Personaje) void
+        +imprimir() void
+    }
 
-class Personaje {
-  -vida:int 
-  -salud:int 
-  -ataque:int 
-  -nivel:int 
-
-  +porcentajeSalud():int 
-  +imprimeBarra():void 
-  +recibeAtaque(ptosAtaque:int):void 
-  +atacar(objetivo:Personaje&):void 
-  +impirmir():void
-}
+```
