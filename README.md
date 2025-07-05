@@ -1,3 +1,7 @@
+---
+title: Situacion problema avance 1
+---
+
 class Personaje {
   -vida:int 
   -salud:int 
