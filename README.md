@@ -1,25 +1,16 @@
-# Ejercicios - Básicos
+---
+title: Situacion problema avance 1
+---
 
-Ubíquese en la **carpeta fuente del proyecto** deseado, use:
+class Personaje {
+  -vida:int 
+  -salud:int 
+  -ataque:int 
+  -nivel:int 
 
-```
-cd <assignments/NombreCarpeta>
-
-Ej.- cd assignments/Proyecto
-
-```
-Regresar a una **carpeta anterior**, use:
-
-```
-Ej.- cd ../
-
-```
-
-Regrese a la **carpeta fuente inical, como está cuando cargas el codespace**, use:
-
-```
-Ej.- cd ../../
-
-```
-
-
+  +porcentajeSalud():int 
+  +imprimeBarra():void 
+  +recibeAtaque(ptosAtaque:int):void 
+  +atacar(objetivo:Personaje&):void 
+  +impirmir():void
+}
