@@ -33,7 +33,7 @@ classDiagram
         +recibeAtaque(int) void
     }
     Personaje <|-- Mortifago
-    class Elfo{
+    class Mortifago{
         -nivelOscuridad : int
         -marcaTenebrosa : bool
         +Mortifago() int
