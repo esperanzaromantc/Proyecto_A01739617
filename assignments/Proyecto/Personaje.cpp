@@ -56,17 +56,17 @@ int Personaje::porcentajeSalud() {
 
 void Personaje::imprimeBarra() {
     int porcentaje = porcentajeSalud();
-    int cantidad = porcentaje / 5;
+    int cantidad =porcentaje / 5;
 
     cout << "Salud [%";  
 
     for (int i = 0; i < cantidad; i++) {
         cout << "#";  
     }
-    for (int i = cantidad; i < 20; i++) {
+    for (int i =cantidad; i < 20; i++) {
         cout << "-";
     }
-    cout << "] " << porcentaje << "%" << endl;  
+    cout << "] " << porcentaje<< "%" << endl;  
 }
 
 void Personaje::recibeAtaque(int ptosAtaque) {
@@ -77,9 +77,9 @@ void Personaje::recibeAtaque(int ptosAtaque) {
 void Personaje::atacar(Personaje &objetivo) {
     int danio;
     if (objetivo.getNivel() > nivel) {
-        danio = rand() % (ataque / 2) + 1;
+        danio = rand() %(ataque / 2) + 1;
     } else {
-        danio = (ataque / 2) + rand() % (ataque / 2+1);
+        danio = (ataque /2) + rand() % (ataque / 2+1);
     }
     objetivo.recibeAtaque(danio);
 }
