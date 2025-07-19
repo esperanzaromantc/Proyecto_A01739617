@@ -53,7 +53,24 @@ void Mortifago::atacar(Personaje &objetivo) {
     objetivo.recibeAtaque(danio);
 }
 
+bool Mortifago::estaVivo() {
+    if (getSalud() > 0) return true;
+    
+    if (nivelOscuridad >= 80 && marcaTenebrosa) {
+        setSalud(1);
+        nivelOscuridad -= 20;
+        cout << "Mortifago uso magia para mantenerse con vida" << endl;
+        return true;
+    }
+    
+    return false;
+}
+
 void Mortifago::recibeAtaque(int ptosAtaque) {
     setSalud(getSalud() - ptosAtaque);
     if (getSalud() < 0) setSalud(0);
+    
+    if (!estaVivo()) {
+        cout << "El mortifago ha caido" << endl;
+    }
 }

@@ -21,9 +21,10 @@ public:
     void setMagiaCurativa(int mc);
     void setEsLibre(bool el);
     
-    void imprimir();
-    void atacar(Personaje &objetivo);
-    void recibeAtaque(int ptosAtaque);
+    void imprimir() override;
+    void atacar(Personaje &objetivo) override;
+    void recibeAtaque(int ptosAtaque) override;
+    bool estaVivo() override;
 };
 
 #endif

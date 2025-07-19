@@ -1,6 +1,7 @@
-// Crear el archivo header de la clase Personaje, no olvides las guardas o el pragma.
+
 #ifndef personaje_hpp
 #define personaje_hpp
+#include <iostream>
 
 class Personaje {
 private:
@@ -25,10 +26,11 @@ public:
 
     int porcentajeSalud();
     void imprimeBarra();
-    void recibeAtaque(int ptosAtaque);
-    void atacar (Personaje &objetivo);
-    void imprimir();
-
+    virtual void recibeAtaque(int ptosAtaque);
+    virtual void atacar(Personaje &objetivo);
+    virtual void imprimir();
+    virtual bool estaVivo() = 0;
+    friend std::ostream& operator<<(std::ostream& os, const Personaje& p);
 };
 
 #endif

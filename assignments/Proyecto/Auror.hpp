@@ -18,9 +18,10 @@ public:
     void setPoderPatronus(int pp);
     void setResistenciaOscura(int ro);
     
-    void imprimir();
-    void atacar(Personaje &objetivo);
-    void recibeAtaque(int ptosAtaque);
+    void imprimir() override;
+    void atacar(Personaje &objetivo) override;
+    void recibeAtaque(int ptosAtaque) override;
+    bool estaVivo() override;
 };
 
 #endif

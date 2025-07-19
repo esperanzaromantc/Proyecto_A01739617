@@ -52,6 +52,19 @@ void Auror::atacar(Personaje &objetivo) {
     objetivo.recibeAtaque(danio);
 }
 
+bool Auror::estaVivo() {
+    if (getSalud() > 0) return true;
+    
+    if (poderPatronus >= 50) {
+        setSalud(getVida() * 0.3);
+        poderPatronus -= 50;
+        cout << "Auror usa patronus como defensa" << endl;
+        return true;
+    }
+    
+    return false;
+}
+
 void Auror::recibeAtaque(int ptosAtaque) {
     int danio = ptosAtaque;
     
@@ -63,4 +76,9 @@ void Auror::recibeAtaque(int ptosAtaque) {
     
     setSalud(getSalud() - danio);
     if (getSalud() < 0) setSalud(0);
+    
+    // Verificar si sigue vivo después del ataque
+    if (!estaVivo()) {
+        cout << "Auror ha caido" << endl;
+    }
 }

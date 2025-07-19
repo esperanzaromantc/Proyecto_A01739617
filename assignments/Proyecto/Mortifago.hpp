@@ -18,9 +18,10 @@ public:
     void setNivelOscuridad(int no);
     void setMarcaTenebrosa(bool mt);
     
-    void imprimir();
-    void atacar(Personaje &objetivo);
-    void recibeAtaque(int ptosAtaque);
+    void imprimir() override;
+    void atacar(Personaje &objetivo) override;
+    void recibeAtaque(int ptosAtaque) override;
+    bool estaVivo() override;
 };
 
 #endif

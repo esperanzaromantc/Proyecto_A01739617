@@ -1,4 +1,4 @@
-//GEnera la implementación de la clase base Personaje
+
 
 #include "Personaje.hpp"
 #include <iostream>
@@ -90,4 +90,10 @@ void Personaje::imprimir() {
     cout << "Ataque: " << ataque << endl;
     cout << "Nivel: " << nivel << endl;
     imprimeBarra();
+}
+
+std::ostream& operator<<(std::ostream& os, const Personaje& p) {
+    os << "Nivel: " << p.nivel << ", Salud: " << p.salud << "/" << p.vida;
+    os << ", Ataque: " << p.ataque;
+    return os;
 }

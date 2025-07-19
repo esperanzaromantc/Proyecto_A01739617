@@ -59,6 +59,19 @@ void Elfo::atacar(Personaje &objetivo) {
     objetivo.recibeAtaque(danio);
 }
 
+bool Elfo::estaVivo() {
+    if (getSalud() > 0) return true;
+    
+    if (magiaCurativa >= 30 && esLibre) {
+        setSalud(getVida() * 0.4);
+        magiaCurativa -= 30;
+        cout << "Elfo usa su magia para sanarse" << endl;
+        return true;
+    }
+    
+    return false;
+}
+
 void Elfo::recibeAtaque(int ptosAtaque) {
     int danio = ptosAtaque;
     
@@ -77,4 +90,8 @@ void Elfo::recibeAtaque(int ptosAtaque) {
     }
     
     if (getSalud() < 0) setSalud(0);
+    
+    if (!estaVivo()) {
+        cout << "El elfo ha sido derrotad" << endl;
+    }
 }

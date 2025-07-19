@@ -3,43 +3,48 @@
 #include "Elfo.hpp"
 #include "Mortifago.hpp"
 #include <iostream>
+#include <vector>
+#include <memory>
 using namespace std;
 
 int main() {
-    Auror harry(150, 20, 5, 80, 85);
-    Elfo dobby(120, 15, 3, 40, 60, true);
-    Mortifago lucius(130, 25, 4, 75, true);
-
-    cout << "==================================" << endl;
-    cout << "Inicio" << endl;
-    cout << "Harry Potter:" << endl;
-    harry.imprimir();
-    cout << "\nDobby:" << endl;
-    dobby.imprimir();
-    cout << "\nLucius Malfoy:" << endl;
-    lucius.imprimir();
+    // Crear vector de apuntadores a Personaje
+    vector<Personaje*> combatientes;
     
-    cout << "==================================" << endl;
-    cout << "\nPelea1: Harry vs Lucius" << endl;
-    harry.atacar(lucius);
-    lucius.atacar(harry);
-    cout << "\nDespues del intercambio:" << endl;
-    cout << "Harry:" << endl;
-    harry.imprimir();
-    cout << "\nLucius:" << endl;
-    lucius.imprimir();
+    // Crear objetos dinámicamente
+    combatientes.push_back(new Auror(150, 20, 5, 80, 85));
+    combatientes.push_back(new Elfo(120, 15, 3, 40, 60, true));
+    combatientes.push_back(new Mortifago(130, 25, 4, 75, true));
     
-    cout << "==================================" << endl;
-    cout << "\nPelea 2: Dobby vs Lucius" << endl;
-    dobby.atacar(lucius);
-    lucius.atacar(dobby);
-    cout << "\nDespues del intercambio:" << endl;
-    cout << "Dobby:" << endl;
-    dobby.imprimir();
-    cout << "\nLucius:" << endl;
-    lucius.imprimir();
-    cout << "==================================" << endl;
+    // Imprimir información inicial usando polimorfismo
+    cout << "=== MUNDO MAGICO ===" << endl;
+    for (size_t i = 0; i < combatientes.size(); ++i) {
+        cout << "\nCombatiente " << i+1 << ":" << endl;
+        combatientes[i]->imprimir();
+    }
+    
+    // Probar polimorfismo en ataques
+    cout << "\n=== INICIO ===" << endl;
+    for (size_t i = 0; i < combatientes.size(); ++i) {
+        size_t objetivo = (i + 1) % combatientes.size();
+        cout << "\nEl " << i+1 << " ataca a el  " << objetivo+1 << endl;
+        
+        combatientes[i]->atacar(*combatientes[objetivo]);
+        
+        cout << "Estado despues de la pelea:" << endl;
+        combatientes[objetivo]->imprimir();
+    }
+    
+    // Probar la sobrecarga del operador <<
+    cout << "\n=== Resumen de la batalla ===" << endl;
+    for (size_t i = 0; i < combatientes.size(); ++i) {
+        cout << "Combatiente " << i+1 << ": " << *combatientes[i] << endl;
+    }
+    
+    // Liberar memoria
+    for (auto* combatiente : combatientes) {
+        delete combatiente;
+    }
     
     return 0;
 }
-
