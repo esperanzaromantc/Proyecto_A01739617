@@ -85,6 +85,7 @@ void imprimirEjercito(Personaje* ejercito[], int tam, const string &nombreEjerci
     cout << "\n---------" << nombreEjercito << "---------" << endl;
     for (int i = 0; i < tam; i++) {
         cout << "\nCombatiente " << i + 1 << ":" << endl;
+        cout << *ejercito[i] << endl;
         ejercito[i]->imprimir();
     }
 }
