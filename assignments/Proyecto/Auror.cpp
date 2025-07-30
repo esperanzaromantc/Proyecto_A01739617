@@ -10,10 +10,11 @@ Auror::Auror() : Personaje() {
     resistenciaOscura = 50;
 }
 
-Auror::Auror(int v, int a, int n, int pp, int ro) : Personaje(v, a, n) {
+Auror::Auror(int v, int a, int n, int pp, int ro, const string &nom) : Personaje(v, a, n, nom) {
     poderPatronus = pp;
     resistenciaOscura = ro;
 }
+
 
 int Auror::getPoderPatronus() {
     return poderPatronus;

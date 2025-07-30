@@ -10,7 +10,7 @@ private:
 
 public:
     Mortifago();
-    Mortifago(int v, int a, int n, int no, bool mt);
+    Mortifago(int v, int a, int n, int no, bool mt, const string &nom);
     
     int getNivelOscuridad();
     bool getMarcaTenebrosa();

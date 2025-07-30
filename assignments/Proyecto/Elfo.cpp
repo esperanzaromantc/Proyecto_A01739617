@@ -9,7 +9,7 @@ Elfo::Elfo() : Personaje() {
     esLibre = true;
 }
 
-Elfo::Elfo(int v, int a, int n, int pe, int mc, bool el) : Personaje(v, a, n) {
+Elfo::Elfo(int v, int a, int n, int pe, int mc, bool el, const string &nom) : Personaje(v, a, n, nom) {
     poderElf = pe;
     magiaCurativa = mc;
     esLibre = el;

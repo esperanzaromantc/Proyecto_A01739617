@@ -1,0 +1,5 @@
+Mortifago Bellatrix 130 25 6 85 1
+Mortifago Lucius 125 23 5 75 1
+Mortifago Fenrir 120 20 4 70 0
+Mortifago Dolohov 115 22 5 80 1
+Mortifago Greyback 140 28 6 90 0

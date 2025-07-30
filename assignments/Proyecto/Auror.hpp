@@ -10,7 +10,7 @@ private:
 
 public:
     Auror();
-    Auror(int v, int a, int n, int pp, int ro);
+    Auror(int v, int a, int n, int pp, int ro, const string &nom);
     
     int getPoderPatronus();
     int getResistenciaOscura();

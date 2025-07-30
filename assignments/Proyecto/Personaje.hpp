@@ -1,7 +1,9 @@
 
-#ifndef personaje_hpp
-#define personaje_hpp
+#ifndef PERSONAJE_HPP
+#define PERSONAJE_HPP
 #include <iostream>
+#include <string>
+using namespace std;
 
 class Personaje {
 private:
@@ -9,20 +11,23 @@ private:
     int salud;
     int ataque;
     int nivel;
+    string nombre;
 
 public:
     Personaje();
-    Personaje(int v, int a, int n);
+    Personaje(int v, int a, int n, const string &nom = "");
     
     int getVida();
     int getSalud();
     int getAtaque();
     int getNivel();
+    string getNombre();
 
     void setVida(int v);
     void setSalud(int s);
     void setAtaque(int a);
     void setNivel(int n);
+    void setNombre(const string &nom);
 
     int porcentajeSalud();
     void imprimeBarra();

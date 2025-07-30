@@ -8,7 +8,7 @@ Mortifago::Mortifago() : Personaje() {
     marcaTenebrosa = true;
 }
 
-Mortifago::Mortifago(int v, int a, int n, int no, bool mt) : Personaje(v, a, n) {
+Mortifago::Mortifago(int v, int a, int n, int no, bool mt, const string &nom) : Personaje(v, a, n, nom) {
     nivelOscuridad = no;
     marcaTenebrosa = mt;
 }

@@ -11,7 +11,7 @@ private:
 
 public:
     Elfo();
-    Elfo(int v, int a, int n, int pe, int mc, bool el);
+    Elfo(int v, int a, int n, int pe, int mc, bool el, const string &nom);
     
     int getPoderElf();
     int getMagiaCurativa();

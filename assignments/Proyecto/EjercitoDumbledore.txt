@@ -1,0 +1,5 @@
+Auror Harry 150 20 5 80 85
+Auror Hermione 140 18 6 85 90
+Elfo Dobby 100 15 4 40 60 1
+Elfo Winky 90 10 3 35 55 0
+Auror Kingsley 160 22 7 70 75

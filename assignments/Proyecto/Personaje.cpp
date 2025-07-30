@@ -9,13 +9,15 @@ Personaje::Personaje() {
     salud = vida;
     ataque = 10;
     nivel = 1;
+    nombre = "";
 }
 
-Personaje::Personaje(int v, int a, int n) {
+Personaje::Personaje(int v, int a, int n, const string &nom) {
     vida = v;
     salud = vida;
     ataque = a;
     nivel = n;
+    nombre = nom;
 }
 
 int Personaje::getVida() {
@@ -50,23 +52,31 @@ void Personaje::setNivel(int n) {
     nivel = n;
 }
 
+string Personaje::getNombre() {
+    return nombre;
+}
+
+void Personaje::setNombre(const string &nom) {
+    nombre = nom;
+}
+
 int Personaje::porcentajeSalud() {
     return (salud * 100) / vida;
 }
 
 void Personaje::imprimeBarra() {
     int porcentaje = porcentajeSalud();
-    int cantidad =porcentaje / 5;
+    int cantidad = porcentaje / 5;
 
-    cout << "Salud [%";  
+    cout << "Salud [%";
 
     for (int i = 0; i < cantidad; i++) {
-        cout << "#";  
+        cout << "#";
     }
-    for (int i =cantidad; i < 20; i++) {
+    for (int i = cantidad; i < 20; i++) {
         cout << "-";
     }
-    cout << "] " << porcentaje<< "%" << endl;  
+    cout << "] " << porcentaje << "%" << endl;
 }
 
 void Personaje::recibeAtaque(int ptosAtaque) {
@@ -77,14 +87,15 @@ void Personaje::recibeAtaque(int ptosAtaque) {
 void Personaje::atacar(Personaje &objetivo) {
     int danio;
     if (objetivo.getNivel() > nivel) {
-        danio = rand() %(ataque / 2) + 1;
+        danio = rand() % (ataque / 2) + 1;
     } else {
-        danio = (ataque /2) + rand() % (ataque / 2+1);
+        danio = (ataque / 2) + rand() % (ataque / 2 + 1);
     }
     objetivo.recibeAtaque(danio);
 }
 
 void Personaje::imprimir() {
+    cout << "Nombre: " << nombre << endl;
     cout << "Vida: " << vida << endl;
     cout << "Salud actual: " << salud << endl;
     cout << "Ataque: " << ataque << endl;
@@ -93,7 +104,7 @@ void Personaje::imprimir() {
 }
 
 std::ostream& operator<<(std::ostream& os, const Personaje& p) {
-    os << "Nivel: " << p.nivel << ", Salud: " << p.salud << "/" << p.vida;
+    os << "Nombre: " << p.nombre << ", Nivel: " << p.nivel << ", Salud: " << p.salud << "/" << p.vida;
     os << ", Ataque: " << p.ataque;
     return os;
 }
